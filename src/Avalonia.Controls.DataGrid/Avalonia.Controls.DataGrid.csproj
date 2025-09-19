@@ -6,6 +6,21 @@
     <IsPackable>true</IsPackable>
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+    <PackageId>ALTechUK.Avalonia.DataGrid</PackageId>
+    <Description>A fork of Avalonia DataGrid which supports user add/remove rows and other misc fixes</Description>
+    <RepositoryUrl>https://github.com/ALTechUK/Avalonia.DataGrid</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <!-- 
+    if github nuget repo ever supports symbol packages then use this
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    -->
+    <DebugType>embedded</DebugType>
+    <EmbedAllSources>true</EmbedAllSources>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,6 +29,7 @@
 
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup Label="InternalsVisibleTo">
@@ -22,31 +38,5 @@
   </ItemGroup>
 
   <Import Project="../../build/SharedVersion.props" />
-
-  <Target Name="UpdateCIBuildNumber"
-          BeforeTargets="PreBuildEvent"
-          Condition="'$(TargetFramework)' == '$(AvsCurrentTargetFramework)' And '$(CIBranchName)' != ''">
-
-    <Message Text="##vso[build.updatebuildnumber]$(Version)"
-             Importance="high" />
-
-  </Target>
-
-  <Target Name="VerifyCIBranch"
-          BeforeTargets="PreBuildEvent"
-          Condition="'$(CIBranchName)' != ''">
-
-    <Message Text="Building non-release version $(Version) for $(TargetFramework)"
-             Condition="'$(CIVersionSuffix)' != ''"
-             Importance="high" />
-
-    <Message Text="Building RELEASE version $(Version) for $(TargetFramework)"
-             Condition="'$(CIVersionSuffix)' == ''"
-             Importance="high" />
-
-    <Error Text="Current release branch '$(CIBranchName)' does not match version '$(Version)'!"
-           Condition="'$(CIVersionSuffix)' == '' And '$(CIBranchName)' != '$(Version)'" />
-
-  </Target>
 
 </Project>
