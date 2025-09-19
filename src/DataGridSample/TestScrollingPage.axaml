@@ -1,0 +1,23 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:DataGridSample"
+             xmlns:converters="clr-namespace:DataGridSample.Converters"
+             xmlns:models="clr-namespace:DataGridSample.Models"
+             x:Class="DataGridSample.TestScrollingPage"
+             x:DataType="local:TestScrollingPage">
+  
+  <Grid VerticalAlignment="Top">
+    <ScrollViewer VerticalScrollBarVisibility="Visible">
+      <StackPanel>
+        <Button Content="Add Row" Click="Add_Click"/>
+        <Button Content="Remove Row" Click="Remove_Click"/>
+        <DataGrid Name="dg1" VerticalScrollBarVisibility="Disabled">
+          <DataGrid.Columns>
+            <DataGridTextColumn Binding="{Binding Text}" Header="Text"/>
+          </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock Text="The datagrid shouldn't have any scroll and should auto adjust it's height based on items" />
+      </StackPanel>
+    </ScrollViewer>
+  </Grid>
+</UserControl>

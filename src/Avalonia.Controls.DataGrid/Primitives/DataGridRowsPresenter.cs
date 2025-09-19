@@ -133,7 +133,8 @@ namespace Avalonia.Controls.Primitives
         /// </returns>
         protected override Size MeasureOverride(Size availableSize)
         {
-            if (double.IsInfinity(availableSize.Height))
+            if (double.IsInfinity(availableSize.Height)
+                && OwningGrid != null && OwningGrid.VerticalScrollBarVisibility != ScrollBarVisibility.Disabled)
             {
                 if (VisualRoot is TopLevel topLevel)
                 {

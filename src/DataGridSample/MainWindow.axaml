@@ -7,7 +7,13 @@
         Height="600"
         WindowStartupLocation="CenterScreen">
 
-  <local:DataGridPage Margin="8" />
-
+  <TabControl>
+    <TabItem Header="Example Grids">
+      <local:DataGridPage Margin="8" />
+    </TabItem>
+    <TabItem Header="Scolling Test">
+      <local:TestScrollingPage />
+    </TabItem>
+  </TabControl>
 </Window>
 
