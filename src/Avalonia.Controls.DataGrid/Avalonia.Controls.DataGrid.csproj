@@ -7,7 +7,7 @@
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
-    <PackageId>ALTechUK.Avalonia.DataGrid</PackageId>
+    <PackageId>ALTechUK.DataGridForAvalonia</PackageId>
     <Description>A fork of Avalonia DataGrid which supports user add/remove rows and other misc fixes</Description>
     <RepositoryUrl>https://github.com/ALTechUK/Avalonia.DataGrid</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
